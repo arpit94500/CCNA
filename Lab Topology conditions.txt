@@ -1,0 +1,33 @@
+The topology to be completed with given conditions
+
+1. Hostnames to be configured as SW1, R0, R1, L3_SW
+2. Gateway for all VLAN will last usable IP address of the Network
+192.168.1.238 vlan 10
+192.168.2.190 vlan 20
+192.168.3.254 vlan 30
+192.168.4.222 vlan 40
+
+3. Host ip for all hosts will be 1st Usable IP address of the network
+192.168.1.225
+192.168.2.129
+192.168.3.241
+192.168.4.193
+
+4. For network between R0 and R1 will be 
+	 (i) 192.168.100.0/24 will subnetted into VLSM with minimum usable IPs of 15(no-of unsable IP should not be more than usable IPs)
+	192.168.100.0/27
+	(ii) Use 3rd subnet 
+	192.168.100.64/27
+        (iii) 3rd usable ip address will be assigned to R0
+	192.168.100.67
+        (iv)  last usable ip address will be assigned to R1
+	192.168.100.94
+5. R0 will be configured with OPSF using Network statement, and router-id will be 1.1.1.1
+6. R1 will be configured with OSPF, router-id will be automatically choosen as 2.2.2.2 and network will be advartised using default network statement
+7. L3SW will be configure with OSPF with interface advertisement, router-id should be 3.3.3.3
+8. Static route for VLAN 30 network will be configured on R0
+9. Floating static route for VLAN 40 network with AD of 150 will be configured on R1
+10. Default static route towards R1 will be configured on L3SW
+--------------------------------------------------------------------
+11. DR for link between R1 and L3SW will be R1 (be configured using priority), L3SW should never become DR/BDR between R1 and L3SW
+12. NO DR/BDR will be elected in between R0 and R1
