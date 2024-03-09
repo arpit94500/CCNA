@@ -1,0 +1,17 @@
+The topology to be completed with given conditions
+
+1. Hostnames to be configured as per topology
+2. Gateway for all VLAN will last usable IP address of the Network
+3. Host ip for all hosts will be 1st Usable IP address of the network
+---------------------------------------------------------
+4. Run OSPF on all router and advertise the all networks,(using network statement on GW1, default network statement on R1 and interface advertise on GW2)
+5. DR for link between GW1 and R1  will be R1 (be configured using priority) and GW1 will not participate in DR/BDR selection
+6. NO DR/BDR will be elected in between R1 and GW2
+---------------------------------------------------------------
+7. Only VLAN 10 network should not be communicate with only WebServer
+rest all services should be reachable. 
+8. PC4 on VLAN 30 will not access the web server and rest all hosts on the VLAN 30 can access  the Webserver.
+9. Only VLAN 20 will access the FTP services
+10. Any traffic from VLAN 20 will not across the GW1 interface Fa 0/2
+11. Telnet to GW2 should be permitted from VLAN 10 only
+
